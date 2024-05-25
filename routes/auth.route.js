@@ -35,7 +35,7 @@ router.post('/registration',
                const user = new User({ email, password: hashedPassword })
                await user.save()
 
-               res.status(201).json({ message: 'Пользователь создан' })
+               res.status(201).json({ message: 'Пользователь создан', email, password })
 
           } catch (err) {
                console.error('Error during registration:', err)
@@ -68,7 +68,7 @@ router.post('/login',
                     return res.status(400).json({ message: 'Пользователь не найден' })
                }
                const isMatch = await bcrypt.compare(password, user.password)
-               
+
                if (!isMatch) {
                     return res.status(400).json({ message: 'Неверный пароль' })
                }
@@ -81,7 +81,7 @@ router.post('/login',
 
                res.status(200).json({ token, userId: user.id })
 
-               
+
           } catch (err) {
                console.error('Error during registration:', err)
                res.status(500).json({ message: 'Server error' })

@@ -1,3 +1,7 @@
+.inp-pass {
+  display: flex;
+  align-items: center;
+}
 .auth-page {
   text-align: center;
   max-width: 600px;
@@ -13,4 +17,9 @@
 
 .row .col {
   padding: 0;
+}
+
+.eye {
+  cursor: pointer;
+  padding: 5px;
 }

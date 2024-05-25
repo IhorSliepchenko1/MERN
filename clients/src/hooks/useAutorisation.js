@@ -1,4 +1,3 @@
-// useAuthorization.js
 import { useContext, useState } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "./../apiConfig";
@@ -10,7 +9,8 @@ export const useAuthorization = () => {
           password: "",
      });
 
-     const { login } = useContext(AuthContext)
+
+     const { login } = useContext(AuthContext);
 
      const changeHandler = (e) => {
           setForm({ ...form, [e.target.name]: e.target.value });
@@ -33,11 +33,7 @@ export const useAuthorization = () => {
           } catch (err) {
                console.error(err);
           }
-
-
      };
 
      return { changeHandler, apiHandler };
 };
-
-
